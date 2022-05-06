@@ -1,0 +1,185 @@
+/*********** Variables ***********/
+/* Colors */
+$color-list: ('black', 'white', 'blue', 'red', 'green', 'purple', 'yellow', 'skyblue', 'orange');
+$color-blue-very-light: #e8efff;
+$color-var: (
+    #000000, // black
+    #ffffff, // white
+    #0026ff, // blue
+    #ff0000, // red
+    #008000, // green
+    #bf40bf, // purple
+    #ffff00, // yellow
+    #87ceeb, // skyblue
+    #ffa500, // orange
+);
+
+/* default values */
+$border-radius: 12px;
+
+
+/*********** Fonts ***********/
+.font-jp {
+    font-family: noto-sans-cjk-jp,
+        "游ゴシック Medium",
+        "Yu Gothic Medium",
+        游ゴシック,
+        "Yu Gothic",
+        游ゴシック体,
+        YuGothic,
+        "ヒラギノ角ゴ Pro W3",
+        "Hiragino Kaku Gothic Pro",
+        メイリオ,
+        Meiryo,
+        sans-serif;
+}
+.font-en {
+    font-family: Georgia, serif;
+}
+
+
+/*********** Common ***********/
+.container {
+    width: 100%;
+    max-width: none;
+    padding: 2% 5%;
+}
+
+.card {
+    border-radius: $border-radius;
+}
+
+/*********** Text color ***********/
+.text-primary {
+    color: $color-blue-very-light!important;
+}
+@for $i from 1 through length($color-list){
+    .text-#{nth($color-list, $i)} {
+        color: nth($color-var, $i)!important;
+    }
+}
+
+/*********** Background color ***********/
+.bg-primary {
+    background-color: $color-blue-very-light!important;
+}
+@for $i from 1 through length($color-list){
+    .bg-#{nth($color-list, $i)} {
+        background-color: nth($color-var, $i)!important;
+    }
+}
+
+/*********** Button ***********/
+.btn {
+    border-radius: $border-radius!important;
+}
+.btn.btn-primary {
+    background-color: $color-blue-very-light!important;
+    border-color: $color-blue-very-light!important;
+    color: black!important;
+
+    &:hover {
+        background-color: darken($color-blue-very-light, 10%)!important;
+        border-color: darken($color-blue-very-light, 10%)!important;
+    }
+    &:active {
+        background-color: darken($color-blue-very-light, 10%)!important;
+        border-color: darken($color-blue-very-light, 10%)!important;
+    }
+}
+@for $i from 1 through length($color-list){
+    $color-name: nth($color-list, $i);
+    $color-value: nth($color-var, $i);
+
+    .btn.btn-#{$color-name} {
+        background-color: $color-value!important;
+        border-color: $color-value!important;
+
+        @if index(('black', 'blue', 'red', 'purple'), $color-name){
+            color: white!important;
+        }
+        @else {
+            color: black!important;
+        }
+
+        &:hover {
+            background-color: darken($color-value, 10%)!important;
+            border-color: darken($color-value, 10%)!important;
+        }
+        &:active {
+            background-color: darken($color-value, 10%)!important;
+            border-color: darken($color-value, 10%)!important;
+        }
+    }
+}
+.btn.btn-outline-primary {
+    background-color: transparent!important;
+    border-color: $color-blue-very-light!important;
+    color: $color-blue-very-light!important;
+
+    &:hover {
+        background-color: $color-blue-very-light!important;
+        border-color: $color-blue-very-light!important;
+        color: black!important;
+    }
+    &:active {
+        background-color: $color-blue-very-light!important;
+        border-color: $color-blue-very-light!important;
+        color: black!important;
+    }
+}
+@for $i from 1 through length($color-list){
+    $color-name: nth($color-list, $i);
+    $color-value: nth($color-var, $i);
+
+    .btn.btn-outline-#{$color-name} {
+        background-color: transparent!important;
+        // background-color: $color-value!important;
+        border-color: $color-value!important;
+        color: $color-value!important;
+
+        &:hover {
+            background-color: $color-value!important;
+            border-color: $color-value!important;
+            @if index(('black', 'blue', 'red', 'purple'), $color-name){
+                color: white!important;
+            }
+            @else {
+                color: black!important;
+            }
+        }
+        &:active {
+            background-color: $color-value!important;
+            border-color: $color-value!important;
+            @if index(('black', 'blue', 'red', 'purple'), $color-name){
+                color: white!important;
+            }
+            @else {
+                color: black!important;
+            }
+        }
+    }
+}
+
+
+/*********** Rounded ***********/
+.rounded {
+    border-radius: $border-radius!important;
+}
+.rounded-top {
+    border-top-left-radius: $border-radius!important;
+    border-top-right-radius: $border-radius!important;
+}
+.rounded-right {
+    border-bottom-right-radius: $border-radius!important;
+    border-top-right-radius: $border-radius!important;
+}
+.rounded-bottom {
+    border-bottom-left-radius: $border-radius!important;
+    border-bottom-right-radius: $border-radius!important;
+}
+.rounded-left {
+    border-bottom-left-radius: $border-radius!important;
+    border-top-left-radius: $border-radius!important;
+}
+
