@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "copy": "cp ./src/style.css ./public/style.css",
+    "convert": "node-sass style.scss style.css",
+    "start": "npm run build & http-server public",
+    "build": "npm run convert & npm run copy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
