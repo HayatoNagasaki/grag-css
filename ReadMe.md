@@ -1,9 +1,8 @@
-# The way to convert SCSS file into CSS.
+# Grag-css
 
-## Initilizing npm project and installing node-sass
+## Requirement
 ```
-npm init
-npm install node-sass
+npm install -g node-sass
 ```
 
 ## Usage
